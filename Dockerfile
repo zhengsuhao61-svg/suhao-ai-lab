@@ -2,10 +2,16 @@ FROM node:22-bookworm-slim
 
 WORKDIR /app
 
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends python3 make g++ \
+  && rm -rf /var/lib/apt/lists/*
+
 COPY package*.json ./
 COPY backend/package*.json ./backend/
 
-RUN npm install
+ENV npm_config_build_from_source=true
+
+RUN npm install --build-from-source
 
 COPY . .
 

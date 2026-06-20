@@ -454,3 +454,10 @@ SQLite
 
 部署策略已从 Railpack 调整为 Docker
 准备重新推送并在 Railway 上验证 sqlite3 兼容性问题是否解决
+
+### 补充修复记录
+
+- 根据 Railway Deploy Logs 确认部署失败根因不是环境变量，而是 `sqlite3` 原生模块加载时报错：`GLIBC_2.38 not found`
+- 修改 `Dockerfile`，安装 `python3`、`make`、`g++`
+- 修改 `Dockerfile`，启用 `npm install --build-from-source`，强制在镜像内源码编译 `sqlite3`
+- 目标是让 Railway 运行时与 `sqlite3` 二进制产物保持一致，避免再次因系统库不兼容导致服务启动即崩溃
