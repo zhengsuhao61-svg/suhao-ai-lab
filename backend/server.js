@@ -4,6 +4,7 @@ const path = require('path')
 const { createMessage, getAllMessages, initDatabase } = require('./db')
 
 const app = express()
+const HOST = process.env.HOST || '0.0.0.0'
 const PORT = process.env.PORT || 3001
 const MESSAGE_RATE_LIMIT_WINDOW_MS = 30 * 1000
 const lastSubmissionByIp = new Map()
@@ -145,8 +146,8 @@ const startServer = async () => {
   try {
     await initDatabase()
 
-    app.listen(PORT, () => {
-      console.log(`Backend server is running at http://localhost:${PORT}`)
+    app.listen(PORT, HOST, () => {
+      console.log(`Backend server is running at http://${HOST}:${PORT}`)
       if (fs.existsSync(frontendIndexPath)) {
         console.log(`Serving frontend from ${frontendDistPath}`)
       }

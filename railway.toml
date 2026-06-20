@@ -3,7 +3,7 @@ builder = "RAILPACK"
 buildCommand = "npm install && npm --prefix backend install && npm run build"
 
 [deploy]
-startCommand = "npm start"
+startCommand = "node backend/server.js"
 healthcheckPath = "/api/test"
 healthcheckTimeout = 120
 restartPolicyType = "ON_FAILURE"

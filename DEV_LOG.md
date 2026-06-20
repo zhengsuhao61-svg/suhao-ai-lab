@@ -309,3 +309,96 @@ SQLite
 
 仓库已具备 Railway 所需基础配置
 SQLite 已有明确持久化挂载方案
+
+---
+
+## 阶段14：推送项目到 GitHub
+
+### 🎯 目标
+
+将当前全栈项目最新代码推送到 GitHub，供 Railway 导入部署
+
+### 🧠 技术
+
+Git
+GitHub
+
+### 📁 文件变更
+
+- 提交当前项目全部阶段 7-13 的代码与部署配置
+- 推送到 GitHub 仓库 `main` 分支
+
+### ✅ 结果
+
+GitHub 仓库已更新为最新全栈版本
+Railway 可直接从 GitHub 导入当前项目
+
+---
+
+## 阶段15：授权 Railway 访问 GitHub 仓库
+
+### 🎯 目标
+
+让 Railway 获得指定 GitHub 仓库访问权限
+
+### 🧠 技术
+
+Railway
+GitHub App
+
+### 📁 文件变更
+
+- 无本地代码变更
+- 完成 Railway GitHub App 仓库授权
+
+### ✅ 结果
+
+Railway 已获得 `suhao-ai-lab` 仓库访问权限
+
+---
+
+## 阶段16：在 Railway 创建项目并导入仓库
+
+### 🎯 目标
+
+从 GitHub 仓库创建 Railway 服务并触发首次部署
+
+### 🧠 技术
+
+Railway
+GitHub Repository
+
+### 📁 文件变更
+
+- 无本地代码变更
+- 在 Railway 中创建项目并导入 GitHub 仓库
+
+### ✅ 结果
+
+Railway 服务已创建
+首次部署已启动
+
+---
+
+## 阶段17：修复 Railway 健康检查失败
+
+### 🎯 目标
+
+修复 Railway 首次部署后的健康检查失败问题
+
+### 🧠 技术
+
+Railway
+Express
+
+### 📁 文件变更
+
+- 修改 package.json（根启动命令改为直接运行 backend/server.js）
+- 修改 railway.toml（启动命令改为直接运行 backend/server.js）
+- 修改 backend/server.js（显式监听 0.0.0.0）
+- 修改 backend/db.js（启动前自动创建数据库目录）
+
+### ✅ 结果
+
+本地已验证健康检查链路正常
+准备推送修复并触发 Railway 重新部署
