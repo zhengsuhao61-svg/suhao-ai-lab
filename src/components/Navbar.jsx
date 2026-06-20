@@ -5,7 +5,6 @@ const navItems = [
   { to: '/about', label: '关于我' },
   { to: '/projects', label: '项目展示' },
   { to: '/message', label: '留言板' },
-  { to: '/admin/messages', label: '后台留言' },
 ]
 
 export default function Navbar() {

@@ -464,3 +464,9 @@ SQLite
 - 继续排查公网访问 `Cannot GET /` 问题，确认根因是 `Dockerfile` 中写死的 `FRONTEND_DIST_PATH=../dist`
 - 在 Railway 容器中该路径会从 `/app` 解析到错误的 `/dist`，导致后端找不到前端构建产物
 - 删除 `Dockerfile` 中的 `FRONTEND_DIST_PATH`，改为使用 `backend/server.js` 的默认前端目录解析逻辑
+
+### 展示优化补充
+
+- 修改 `src/components/Navbar.jsx`
+- 从公开导航栏中移除“后台留言”入口
+- 保留 `/admin/messages` 路由，方便站长本人通过直接网址查看留言
