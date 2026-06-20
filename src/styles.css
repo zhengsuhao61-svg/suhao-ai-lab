@@ -426,8 +426,7 @@ a {
   box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
 }
 
-.message-form button,
-.message-item button {
+.message-form button {
   justify-self: start;
   border: 1px solid rgba(34, 211, 238, 0.36);
   border-radius: 8px;
@@ -444,12 +443,32 @@ a {
     box-shadow 180ms ease;
 }
 
-.message-form button:hover,
-.message-item button:hover {
+.message-form button:hover {
   transform: translateY(-2px);
   border-color: rgba(103, 232, 249, 0.7);
   background: rgba(8, 145, 178, 0.52);
   box-shadow: 0 14px 32px rgba(8, 145, 178, 0.18);
+}
+
+.message-form button:disabled {
+  transform: none;
+  opacity: 0.72;
+  cursor: wait;
+  box-shadow: none;
+}
+
+.message-feedback {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.message-feedback.success {
+  color: #86efac;
+}
+
+.message-feedback.error {
+  color: #fda4af;
 }
 
 .message-list {
@@ -462,7 +481,7 @@ a {
   gap: 12px;
 }
 
-.message-item > div {
+.message-meta {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -472,18 +491,6 @@ a {
 .message-item time {
   color: var(--muted);
   font-size: 13px;
-}
-
-.message-item button {
-  border-color: rgba(248, 113, 113, 0.32);
-  color: #fecaca;
-  background: rgba(127, 29, 29, 0.2);
-}
-
-.message-item button:hover {
-  border-color: rgba(248, 113, 113, 0.6);
-  background: rgba(127, 29, 29, 0.36);
-  box-shadow: 0 14px 32px rgba(127, 29, 29, 0.18);
 }
 
 .empty-message {
@@ -626,8 +633,9 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .message-item > div {
+  .message-meta {
     align-items: flex-start;
     flex-direction: column;
   }
+
 }

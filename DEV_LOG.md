@@ -121,3 +121,191 @@ React + Vite + 静态部署
 
 ### ✅ 结果
 项目可以生成可部署的 dist 目录，并兼容 Vercel 与 GitHub Pages 的基础静态部署场景。
+
+---
+
+## 阶段7：后端基础搭建
+
+### 🎯 目标
+
+为网站建立 Node.js + Express 后端服务
+
+### 🧠 技术
+
+Node.js
+Express
+
+### 📁 文件变更
+
+- 新增 backend/ 目录
+- 新增 backend/server.js
+- 新增 backend/package.json
+- 新增 backend/package-lock.json
+- 安装 backend/node_modules 依赖
+- 修改 vite.config.js（新增 /api 代理配置）
+- 修改 README.md（补充后端启动与联调说明）
+
+### ✅ 结果
+
+后端成功运行
+可通过 /api/test 访问测试接口
+
+---
+
+## 阶段8：SQLite数据库接入
+
+### 🎯 目标
+
+建立留言系统数据库
+
+### 🧠 技术
+
+SQLite
+sqlite3
+
+### 📁 文件变更
+
+- 安装 backend/sqlite3 依赖
+- 新增 backend/db.js
+- 修改 backend/server.js（服务启动时自动初始化数据库）
+- 修改 backend/package.json
+- 修改 backend/package-lock.json
+- 修改 README.md（补充数据库说明）
+
+### ✅ 结果
+
+数据库成功创建
+messages表成功创建
+
+---
+
+## 阶段9：留言提交系统
+
+### 🎯 目标
+
+实现留言提交
+
+### 🧠 技术
+
+React
+Express
+SQLite
+
+### 📁 文件变更
+
+- 安装 axios
+- 修改 backend/db.js（新增留言写入方法）
+- 修改 backend/server.js（新增 POST /api/messages 接口与参数校验）
+- 修改 src/pages/Message.jsx（改为提交到后端数据库）
+- 修改 src/styles.css（增加提交状态与反馈样式）
+- 修改 README.md（补充留言提交说明）
+
+### ✅ 结果
+
+访客可提交留言
+留言保存到数据库
+
+---
+
+## 阶段10：后台留言管理
+
+### 🎯 目标
+
+查看访客留言
+
+### 🧠 技术
+
+React
+Express
+SQLite
+
+### 📁 文件变更
+
+- 修改 backend/db.js（新增读取全部留言的方法）
+- 修改 backend/server.js（新增 GET /api/messages 接口）
+- 新增 src/pages/AdminMessages.jsx
+- 修改 src/App.jsx（新增后台留言路由）
+- 修改 src/components/Navbar.jsx（新增后台入口）
+- 修改 src/styles.css（补充留言列表展示样式）
+- 修改 README.md（补充后台留言查看说明）
+
+### ✅ 结果
+
+管理员可查看所有留言
+
+---
+
+## 阶段11：留言系统安全优化
+
+### 🎯 目标
+
+防止恶意刷留言和无效数据
+
+### 🧠 技术
+
+Express
+SQLite
+
+### 📁 文件变更
+
+- 修改 backend/server.js（新增服务端校验、字符清洗与频率限制）
+- 修改 src/pages/Message.jsx（同步前端输入长度限制与提示）
+
+### ✅ 结果
+
+无效数据会被拦截
+正常留言可继续提交
+
+---
+
+## 阶段12：全栈网站部署准备
+
+### 🎯 目标
+
+确保前后端项目可部署上线
+
+### 🧠 技术
+
+React
+Express
+SQLite
+
+### 📁 文件变更
+
+- 修改 backend/db.js（支持环境变量数据库路径）
+- 修改 backend/server.js（支持生产环境托管 dist 静态文件）
+- 修改 package.json（补充根目录启动与前后端脚本）
+- 修改 .gitignore（忽略本地 SQLite 数据库文件）
+- 新增 backend/.env.example
+- 修改 README.md（重写为全栈部署说明）
+
+### ✅ 结果
+
+项目具备完整部署说明
+前后端生产启动路径已整理
+无阻塞问题
+
+---
+
+## 阶段13：Railway部署配置准备
+
+### 🎯 目标
+
+为全栈网站接入 Railway 部署配置，准备公网可访问的留言系统
+
+### 🧠 技术
+
+Railway
+Express
+SQLite
+
+### 📁 文件变更
+
+- 新增 railway.toml（Railway 构建、启动、健康检查配置）
+- 新增 .env.example（根目录部署变量示例）
+- 修改 README.md（补充 Railway 部署说明和 Volume 挂载路径）
+
+### ✅ 结果
+
+仓库已具备 Railway 所需基础配置
+SQLite 已有明确持久化挂载方案

@@ -3,3 +3,7 @@ dist/
 *.log
 .env
 .env.local
+backend/data.sqlite
+backend/*.sqlite-journal
+backend/*.sqlite-shm
+backend/*.sqlite-wal

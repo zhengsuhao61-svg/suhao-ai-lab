@@ -4,6 +4,7 @@ import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Projects from './pages/Projects.jsx'
 import Message from './pages/Message.jsx'
+import AdminMessages from './pages/AdminMessages.jsx'
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/message" element={<Message />} />
+        <Route path="/admin/messages" element={<AdminMessages />} />
       </Route>
     </Routes>
   )
