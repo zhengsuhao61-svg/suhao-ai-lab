@@ -461,3 +461,6 @@ SQLite
 - 修改 `Dockerfile`，安装 `python3`、`make`、`g++`
 - 修改 `Dockerfile`，启用 `npm install --build-from-source`，强制在镜像内源码编译 `sqlite3`
 - 目标是让 Railway 运行时与 `sqlite3` 二进制产物保持一致，避免再次因系统库不兼容导致服务启动即崩溃
+- 继续排查公网访问 `Cannot GET /` 问题，确认根因是 `Dockerfile` 中写死的 `FRONTEND_DIST_PATH=../dist`
+- 在 Railway 容器中该路径会从 `/app` 解析到错误的 `/dist`，导致后端找不到前端构建产物
+- 删除 `Dockerfile` 中的 `FRONTEND_DIST_PATH`，改为使用 `backend/server.js` 的默认前端目录解析逻辑
