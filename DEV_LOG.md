@@ -402,3 +402,28 @@ Express
 
 本地已验证健康检查链路正常
 准备推送修复并触发 Railway 重新部署
+
+---
+
+## 阶段18：修复 Railway 运行时依赖问题
+
+### 🎯 目标
+
+解决 Railway 重新部署后仍无法通过健康检查的问题
+
+### 🧠 技术
+
+Railway
+Node.js
+Express
+SQLite
+
+### 📁 文件变更
+
+- 修改 railway.toml（简化构建命令）
+- 修改 package.json / package-lock.json（将 Express 和 sqlite3 提升到根项目依赖）
+
+### ✅ 结果
+
+本地已按 Railway 运行方式重新验证通过
+准备再次推送并触发 Railway 重部署
