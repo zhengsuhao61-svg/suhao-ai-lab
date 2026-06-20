@@ -1,9 +1,7 @@
 [build]
-builder = "RAILPACK"
-buildCommand = "npm install && npm run build"
+builder = "DOCKERFILE"
 
 [deploy]
-startCommand = "node backend/server.js"
 healthcheckPath = "/api/test"
 healthcheckTimeout = 120
 restartPolicyType = "ON_FAILURE"

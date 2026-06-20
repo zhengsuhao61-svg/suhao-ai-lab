@@ -195,7 +195,7 @@ FRONTEND_DIST_PATH=../dist
 
 说明：
 
-- `railway.toml` 已指定构建命令和启动命令
+- 当前 Railway 部署改为通过 `Dockerfile` 运行，避免 `sqlite3` 原生模块与平台运行时系统库不兼容
 - 健康检查路径为 `/api/test`
 - SQLite 需要依赖 Railway Volume 才能持久化
 - 如果不挂载 Volume，部署重启后留言数据可能丢失

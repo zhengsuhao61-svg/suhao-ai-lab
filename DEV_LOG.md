@@ -427,3 +427,30 @@ SQLite
 
 本地已按 Railway 运行方式重新验证通过
 准备再次推送并触发 Railway 重部署
+
+---
+
+## 阶段19：切换为 Docker 部署以修复 sqlite3 兼容问题
+
+### 🎯 目标
+
+解决 Railway 运行环境与 sqlite3 原生模块的系统库不兼容问题
+
+### 🧠 技术
+
+Docker
+Railway
+Node.js
+SQLite
+
+### 📁 文件变更
+
+- 新增 Dockerfile
+- 新增 .dockerignore
+- 修改 railway.toml（切换为 Dockerfile 构建）
+- 修改 README.md（补充 Docker 部署说明）
+
+### ✅ 结果
+
+部署策略已从 Railpack 调整为 Docker
+准备重新推送并在 Railway 上验证 sqlite3 兼容性问题是否解决

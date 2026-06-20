@@ -1,0 +1,10 @@
+node_modules
+backend/node_modules
+dist
+.git
+.github
+*.log
+backend/data.sqlite
+backend/*.sqlite-journal
+backend/*.sqlite-shm
+backend/*.sqlite-wal
