@@ -13,7 +13,6 @@ export default function Navbar() {
       <nav className="navbar">
         <NavLink to="/" className="site-title">
           <span className="site-logo">ZS</span>
-          <span>郑苏昊的个人网站</span>
         </NavLink>
 
         <div className="nav-links">
